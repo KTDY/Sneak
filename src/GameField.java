@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class GameField extends JPanel implements ActionListener {
     private final int SIZE = 320;
     private final int DOT_SIZE = 16;
+    private String name;
     private String [] bestName = new String[5000];
     private String [] bestVal = new String[5000];
     private int topPersons = 0;
@@ -39,6 +40,7 @@ public class GameField extends JPanel implements ActionListener {
     }
 
     public void initGame(){
+        name = "Gamer";
         snake = new Snake(3);
         timer = new Timer(250, this);
         timer.start();
@@ -87,23 +89,23 @@ public class GameField extends JPanel implements ActionListener {
         for (int i = snake.getDots(); i > 0 ; i--) {
             if(i > 4 && snake.getX(0) == snake.getX(i) && snake.getY(0) == snake.getY(i)){ //голова пришла в хвост
                 inGame = false;
-                checkOnBest(eatApples);
+                checkOnBest(name, eatApples);
             }
             //проверка не коснулись ли тела
             for (int j = 1; j < snake.getDots(); j++){
                 if(i > 4 && snake.getX(0) == snake.getX(j) && snake.getY(0) == snake.getY(j)){
                     inGame = false;
-                    checkOnBest(eatApples);
+                    checkOnBest(name, eatApples);
                 }
             }
         }
         if((snake.getX(0)> SIZE) || (snake.getX(0)<0) || (snake.getY(0)> SIZE) || (snake.getY(0)<0)){
             inGame = false;
-            checkOnBest(eatApples);
+            checkOnBest(name, eatApples);
         }
         if (snake.getDots() == 0){
             inGame = false;
-            checkOnBest(eatApples);
+            checkOnBest(name, eatApples);
         }
         for (int i = snake.getDots(); i > 0; i--) {
             if((snake.getX(i)== snake.getBombX()) && snake.getBombY() == snake.getY(i)){
@@ -259,13 +261,35 @@ public class GameField extends JPanel implements ActionListener {
             e.printStackTrace();
         }
     }
-    public void checkOnBest(int num){
+    public void checkOnBest(String name, int num){
+        boolean change = false;
         for(int i = 0; i < topPersons; i++){
             int val = Integer.parseInt(bestVal[i]);
             if(val <= num){
                 bestVal[i] = String.valueOf(num);
+                bestName[i] = name;
+                change = true;
                 System.out.println("We change");
             }
         }
+        if(change){
+            writeFile();
+        }
+    }
+
+    public void writeFile(){
+        try {
+            FileWriter writer = new FileWriter("Best.txt");
+            for(int i = 0; i < topPersons; i++) {
+                writer.write(bestName[i]);
+                writer.write(" ");
+                writer.write(bestVal[i]);
+                writer.write('\n');
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
