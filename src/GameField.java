@@ -3,12 +3,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class GameField extends JPanel implements ActionListener {
     private final int SIZE = 320;
     private final int DOT_SIZE = 16;
-    private int [] best = new int[5000];
+    private String [] bestName = new String[5000];
+    private String [] bestVal = new String[5000];
+    private int topPersons = 0;
     private Image myBackGround;
     private Image apple;
     private Image PoisonApple;
@@ -41,6 +44,7 @@ public class GameField extends JPanel implements ActionListener {
         timer.start();
         createApple();
         createPoisonApple();
+        bestInFile();
     }
 
 
@@ -83,19 +87,23 @@ public class GameField extends JPanel implements ActionListener {
         for (int i = snake.getDots(); i > 0 ; i--) {
             if(i > 4 && snake.getX(0) == snake.getX(i) && snake.getY(0) == snake.getY(i)){ //голова пришла в хвост
                 inGame = false;
+                checkOnBest(eatApples);
             }
             //проверка не коснулись ли тела
             for (int j = 1; j < snake.getDots(); j++){
                 if(i > 4 && snake.getX(0) == snake.getX(j) && snake.getY(0) == snake.getY(j)){
                     inGame = false;
+                    checkOnBest(eatApples);
                 }
             }
         }
         if((snake.getX(0)> SIZE) || (snake.getX(0)<0) || (snake.getY(0)> SIZE) || (snake.getY(0)<0)){
             inGame = false;
+            checkOnBest(eatApples);
         }
         if (snake.getDots() == 0){
             inGame = false;
+            checkOnBest(eatApples);
         }
         for (int i = snake.getDots(); i > 0; i--) {
             if((snake.getX(i)== snake.getBombX()) && snake.getBombY() == snake.getY(i)){
@@ -166,7 +174,6 @@ public class GameField extends JPanel implements ActionListener {
                         g.drawImage(snake.getTail(), snake.getX(i), snake.getY(i), this);
                     }
                 }
-                bestInFile();
                 //g.drawImage(snake.getDot(), snake.getX(i),snake.getY(i), this);
             }
             g.drawImage(snake.getBomb(), snake.getBombX(), snake.getBombY(), this);
@@ -234,41 +241,31 @@ public class GameField extends JPanel implements ActionListener {
         }
     }
     public void bestInFile(){
-        try(FileReader reader = new FileReader("Best.txt"))
-        {
-            int i = 0;
-            // читаем посимвольно
-            int c;
-            while((c=reader.read())!=-1){
+        try {
+            FileReader reader = new FileReader("Best.txt");
+            Scanner scan = new Scanner(reader);
+            scan.useDelimiter(" |\n");
 
-                best[i] = c;
-                i++;
+            while (scan.hasNext()) {
+                String Name = scan.next();
+                String valStr = scan.next();
+                bestName[topPersons] = Name;
+                bestVal[topPersons] = valStr;
+                topPersons++;
             }
-            for(int j = 0;j<best.length;j++) {
-                if (best[j] < eatApples + 48){
-                    best[j] = eatApples + 48;
-                }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void checkOnBest(int num){
+        for(int i = 0; i < topPersons; i++){
+            int val = Integer.parseInt(bestVal[i]);
+            if(val <= num){
+                bestVal[i] = String.valueOf(num);
+                System.out.println("We change");
             }
-        }
-
-        catch(IOException ex){
-
-            System.out.println(ex.getMessage());
-        }
-
-
-        try(FileWriter writer = new FileWriter("Best.txt"))
-        {
-            // запись всей строки
-
-            //String res = String.valueOf(best[0]);
-
-            writer.write(best[0]);
-            writer.flush();
-        }
-        catch(IOException ex){
-
-            System.out.println(ex.getMessage());
         }
     }
 }

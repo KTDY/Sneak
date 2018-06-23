@@ -1,1 +1,2 @@
-6
+Ivan 60
+Vasya 2
