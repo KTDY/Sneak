@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8843e27e-0fbf-493d-a1ec-9dc017c3dd6e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Combination.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Best.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Best.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sneak/GameField$FieldKeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/GameField$FieldKeyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sneak/GameField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/GameField.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameField.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,14 +43,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameField.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameField.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+            <state relative-caret-position="230">
+              <caret line="279" column="24" selection-start-line="279" selection-start-column="24" selection-end-line="279" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Combination.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Combination.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -112,6 +123,7 @@
         <option value="$PROJECT_DIR$/Best.txt" />
         <option value="$PROJECT_DIR$/src/Map.java" />
         <option value="$PROJECT_DIR$/src/GameField.java" />
+        <option value="$PROJECT_DIR$/Combination.txt" />
       </list>
     </option>
   </component>
@@ -264,12 +276,12 @@
       <workItem from="1529762364132" duration="177000" />
       <workItem from="1529762597305" duration="34000" />
       <workItem from="1529764557689" duration="404000" />
-      <workItem from="1529766037972" duration="11190000" />
+      <workItem from="1529766037972" duration="12965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38803000" />
+    <option name="totallyTimeSpent" value="40578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="6" />
@@ -339,20 +351,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GameField.java</url>
+          <line>274</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3495">
@@ -814,11 +824,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+        <state relative-caret-position="230">
+          <caret line="279" column="24" selection-start-line="279" selection-start-column="24" selection-end-line="279" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combination.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>

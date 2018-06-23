@@ -31,6 +31,7 @@ public class GameField extends JPanel implements ActionListener {
     private boolean inGame = true;
     private int eatApples = 0;
     private boolean downBomb = true;
+    private char Up,Down,Left,Right;
 
 
     public GameField(String name){
@@ -231,23 +232,23 @@ public class GameField extends JPanel implements ActionListener {
         @Override
         public void keyPressed(KeyEvent e) {
             super.keyPressed(e);
-            int key = e.getKeyCode();
-            if(key == KeyEvent.VK_LEFT && !right){
+            int key = e.getKeyChar();
+            if(key == Left && !right){
                 left = true;
                 up = false;
                 down = false;
             }
-            if(key == KeyEvent.VK_RIGHT && !left){
+            if(key == Right && !left){
                 right = true;
                 up = false;
                 down = false;
             }
-            if(key == KeyEvent.VK_UP && !down){
+            if(key == Up && !down){
                 left = false;
                 up = true;
                 right = false;
             }
-            if(key == KeyEvent.VK_DOWN && !up){
+            if(key == Down && !up){
                 left = false;
                 down = true;
                 right = false;
@@ -255,10 +256,14 @@ public class GameField extends JPanel implements ActionListener {
         }
     }
     private void bestInFile(){
+        int i = 0;
         try {
             FileReader reader = new FileReader("Best.txt");
+            FileReader combination = new FileReader("Combination.txt");
             Scanner scan = new Scanner(reader);
+            Scanner comb = new Scanner(combination);
             scan.useDelimiter(" |\n");
+            comb.useDelimiter(" |\n");
 
             while (scan.hasNext()) {
                 String Name = scan.next();
@@ -267,7 +272,28 @@ public class GameField extends JPanel implements ActionListener {
                 bestVal[topPersons] = valStr;
                 topPersons++;
             }
+            while (comb.hasNext()) {
+                String Name = comb.next();
+                String valStr = comb.next();
+                if (i == 3) {
+                    Right = valStr.charAt(0);
+                    i++;
+                }
+                if (i == 2) {
+                    Left = valStr.charAt(0);
+                    i++;
+                }
+                if (i == 1) {
+                    Down = valStr.charAt(0);
+                    i++;
+                }
+                if (i == 0) {
+                    Up = valStr.charAt(0);
+                    i++;
+                }
+            }
 
+            combination.close();
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
