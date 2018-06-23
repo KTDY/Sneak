@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame {
     JPanel p;
+    String name = "Gamer";
     public MainWindow(){
         setTitle("Змейка");
         setSize(352, 374);
@@ -14,7 +15,7 @@ public class MainWindow extends JFrame {
     }
     public void Game(){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        GameField g = new GameField();
+        GameField g = new GameField(name);
         g.setBounds(0,0,400,400);
         add(new GameField());
         setVisible(true);

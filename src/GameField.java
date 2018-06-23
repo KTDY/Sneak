@@ -32,15 +32,15 @@ public class GameField extends JPanel implements ActionListener {
     private boolean downBomb = true;
 
 
-    public GameField(){
+    public GameField(String name){
         loadImages();
-        initGame();
+        initGame(name);
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
     }
 
-    public void initGame(){
-        name = "Gamer";
+    public void initGame(String name){
+        this.name = name;
         snake = new Snake(3);
         timer = new Timer(250, this);
         timer.start();
