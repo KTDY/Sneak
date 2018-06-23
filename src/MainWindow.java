@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 public class MainWindow extends JFrame {
     JPanel p;
@@ -23,7 +24,6 @@ public class MainWindow extends JFrame {
 
     public void Menu(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        JLabel lab = new JLabel("Your Score");
         JLabel lab1 = new JLabel(" ");
         JButton button = new JButton("New Game");
         JButton about = new JButton("About");
@@ -32,12 +32,14 @@ public class MainWindow extends JFrame {
         ActionListener actionListener = new TestActionListener();
         button.addActionListener(actionListener);
 
-        lab.setBounds(125,25,85,50);
         t.setBounds(125,200,85,50);
         about.setBounds(125,150,85,50);
         button.setBounds(125, 100,85,50);
+        ImageIcon img = new ImageIcon("Background.jpg").getImage();
+        Graphics g = getGraphics();
+        g.drawImage(img, 0, 0, 100, 100, null);
 
-        p.add(lab,BorderLayout.CENTER);
+
         p.add(button, BorderLayout.CENTER);
         p.add(about, BorderLayout.CENTER);
         p.add(t, BorderLayout.CENTER);
