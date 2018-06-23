@@ -286,7 +286,7 @@ public class GameField extends JPanel implements ActionListener {
     private void sorted(int num, int index, String name) {
         String number = String.valueOf(num);
         boolean change = false;
-        for(int i = index; i < topPersons - 1; i++){
+        for(int i = index; i < topPersons; i++){
             bestName[i+1] = bestName[i];
             bestVal[i+1] = bestVal[i];
 
