@@ -272,7 +272,9 @@ public class GameField extends JPanel implements ActionListener {
                 change = true;
                 System.out.println("We change");
                 */
-                sorted(num);
+                sorted(num, i, name);
+                change = true;
+                System.out.println("We change");
                 break;
             }
         }
@@ -281,8 +283,21 @@ public class GameField extends JPanel implements ActionListener {
         }
     }
 
-    private void sorted(int num) {
-        
+    private void sorted(int num, int index, String name) {
+        String number = String.valueOf(num);
+        boolean change = false;
+        for(int i = index; i < topPersons - 1; i++){
+            bestName[i+1] = bestName[i];
+            bestVal[i+1] = bestVal[i];
+
+            if(!change) {
+                bestVal[i] = number;
+                bestName[i] = name;
+                change = true;
+                i++;
+            }
+
+        }
     }
 
     private void writeFile(){
