@@ -263,13 +263,14 @@ public class GameField extends JPanel implements ActionListener {
     }
     public void checkOnBest(String name, int num){
         boolean change = false;
-        for(int i = 0; i < topPersons; i++){
+        for(int i = topPersons-1; i >= 0; i--){
             int val = Integer.parseInt(bestVal[i]);
             if(val <= num){
                 bestVal[i] = String.valueOf(num);
                 bestName[i] = name;
                 change = true;
                 System.out.println("We change");
+                break;
             }
         }
         if(change){

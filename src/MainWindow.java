@@ -35,9 +35,6 @@ public class MainWindow extends JFrame {
         t.setBounds(125,200,85,50);
         about.setBounds(125,150,85,50);
         button.setBounds(125, 100,85,50);
-        ImageIcon img = new ImageIcon("Background.jpg").getImage();
-        Graphics g = getGraphics();
-        g.drawImage(img, 0, 0, 100, 100, null);
 
 
         p.add(button, BorderLayout.CENTER);
