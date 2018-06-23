@@ -85,7 +85,7 @@ public class GameField extends JPanel implements ActionListener {
         repaint();
     }
 
-    public void checkCollisions() {
+    private void checkCollisions() {
         for (int i = snake.getDots(); i > 0 ; i--) {
             if(i > 4 && snake.getX(0) == snake.getX(i) && snake.getY(0) == snake.getY(i)){ //голова пришла в хвост
                 inGame = false;
@@ -115,7 +115,7 @@ public class GameField extends JPanel implements ActionListener {
         }
     }
 
-    public void checkApple() {
+    private void checkApple() {
         if(snake.getX(0) == appleX && snake.getY(0) == appleY){ //если голова пришла к яблоку
             snake.addDots();
             eatApples++;
@@ -242,7 +242,7 @@ public class GameField extends JPanel implements ActionListener {
             }
         }
     }
-    public void bestInFile(){
+    private void bestInFile(){
         try {
             FileReader reader = new FileReader("Best.txt");
             Scanner scan = new Scanner(reader);
@@ -263,13 +263,16 @@ public class GameField extends JPanel implements ActionListener {
     }
     public void checkOnBest(String name, int num){
         boolean change = false;
-        for(int i = topPersons-1; i >= 0; i--){
+        for(int i = 0; i < topPersons; i++){
             int val = Integer.parseInt(bestVal[i]);
             if(val <= num){
+                /*
                 bestVal[i] = String.valueOf(num);
                 bestName[i] = name;
                 change = true;
                 System.out.println("We change");
+                */
+                sorted(num);
                 break;
             }
         }
@@ -278,7 +281,11 @@ public class GameField extends JPanel implements ActionListener {
         }
     }
 
-    public void writeFile(){
+    private void sorted(int num) {
+        
+    }
+
+    private void writeFile(){
         try {
             FileWriter writer = new FileWriter("Best.txt");
             for(int i = 0; i < topPersons; i++) {
