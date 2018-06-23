@@ -17,7 +17,7 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         GameField g = new GameField(name);
         g.setBounds(0,0,400,400);
-        add(new GameField());
+        add(g);
         setVisible(true);
     }
 
