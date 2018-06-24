@@ -26,7 +26,7 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JLabel lab1 = new JLabel(" ");
         JButton button = new JButton("New Game");
-        JButton about = new JButton("About");
+        JButton about = new JButton("Menu");
         JButton t = new JButton("Test");
 
         ActionListener actionListener = new TestActionListener();
