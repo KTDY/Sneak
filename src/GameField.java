@@ -156,6 +156,12 @@ public class GameField extends JPanel implements ActionListener {
         if (inGame){
             for(int i = 0; i < 10; i++){
                 g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(),this);
+                if(map.getMas(i) == appleX && map.getPosY() == appleY){
+                    createApple();
+                }
+                if(map.getMas(i) == applePX && map.getPosY() == applePY){
+                    createPoisonApple();
+                }
             }
             g.drawImage(apple, appleX, appleY, this);
             g.drawImage(PoisonApple, applePX, applePY, this);
