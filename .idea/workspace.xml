@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="b4db880e-ef60-4588-b596-1dd8311936b4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -127,6 +128,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 478d9966437edaae6a18283e0d53b873b1f1e85c
   <component name="RunManager">
     <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainWindow" />
@@ -180,6 +183,7 @@
       </list>
     </recent_temporary>
   </component>
+<<<<<<< HEAD
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -278,4 +282,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> 478d9966437edaae6a18283e0d53b873b1f1e85c
 </project>
