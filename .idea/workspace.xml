@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8843e27e-0fbf-493d-a1ec-9dc017c3dd6e" name="Default" comment="" />
+    <list default="true" id="8843e27e-0fbf-493d-a1ec-9dc017c3dd6e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameField.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,8 +41,8 @@
       <file leaf-file-name="GameField.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-468">
-              <caret line="293" column="44" selection-start-line="293" selection-start-column="44" selection-end-line="293" selection-end-column="44" />
+            <state relative-caret-position="567">
+              <caret line="363" lean-forward="true" selection-start-line="363" selection-end-line="363" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,7 +140,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,8 +158,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,11 +272,12 @@
       <workItem from="1529766037972" duration="13060000" />
       <workItem from="1529843367558" duration="226000" />
       <workItem from="1529857746891" duration="63000" />
+      <workItem from="1529862357897" duration="715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40962000" />
+    <option name="totallyTimeSpent" value="41677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
@@ -282,7 +285,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32918397" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -308,6 +310,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962447" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32918397" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -808,8 +811,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="293" column="44" selection-start-line="293" selection-start-column="44" selection-end-line="293" selection-end-column="44" />
+        <state relative-caret-position="567">
+          <caret line="363" lean-forward="true" selection-start-line="363" selection-end-line="363" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
