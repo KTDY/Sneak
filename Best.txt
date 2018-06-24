@@ -1,7 +1,7 @@
 Gamer 4
 Gamer 3
 Gamer 2
-A 0
+Gamer 0
 A 0
 A 0
 A 0
