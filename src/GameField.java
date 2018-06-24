@@ -14,6 +14,7 @@ public class GameField extends JPanel implements ActionListener {
     private String [] bestName = new String[5000];
     private String [] bestVal = new String[5000];
     private int topPersons = 0;
+    private int topPersonsI = 10;
     private Image myBackGround;
     private Image apple;
     private Image PoisonApple;

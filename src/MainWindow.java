@@ -89,7 +89,7 @@ public class MainWindow extends JFrame {
                 String Name = scan.next();
                 String valStr = scan.next();
                 JLabel name = new JLabel(Name + "    " + valStr);
-                name.setBounds(150,pos,40,40);
+                name.setBounds(150,pos,100,40);
                 pos +=20;
                 p.add(name, BorderLayout.CENTER);
 
