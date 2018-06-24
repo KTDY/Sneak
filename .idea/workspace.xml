@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="5da388fe-1ab6-45b5-9a78-41cb5fb4d3e7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
@@ -121,6 +122,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 0fe880893299ef0c7dd6d6a382dc21907886816d
   <component name="RunManager">
     <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainWindow" />
@@ -174,6 +177,7 @@
       </list>
     </recent_temporary>
   </component>
+<<<<<<< HEAD
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -268,5 +272,16 @@
         </state>
       </provider>
     </entry>
+=======
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+>>>>>>> 0fe880893299ef0c7dd6d6a382dc21907886816d
   </component>
 </project>
