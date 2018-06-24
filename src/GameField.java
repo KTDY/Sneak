@@ -265,14 +265,15 @@ public class GameField extends JPanel implements ActionListener {
             scan.useDelimiter(" |\n");
             comb.useDelimiter(" |\n");
 
-            while (scan.hasNext()) {
+            while (scan.hasNext()) { //устанавливаем имена и их рекоды в массивы
                 String Name = scan.next();
                 String valStr = scan.next();
                 bestName[topPersons] = Name;
                 bestVal[topPersons] = valStr;
                 topPersons++;
             }
-            while (comb.hasNext()) {
+
+            while (comb.hasNext()) { //устанавливаем клавиши для управления
                 String Name = comb.next();
                 String valStr = comb.next();
                 if (i == 3) {
