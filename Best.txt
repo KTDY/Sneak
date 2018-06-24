@@ -1,6 +1,6 @@
 Gamer 1
-A 0
-A 0
+Gamer 0
+Gamer 0
 A 0
 A 0
 A 0
