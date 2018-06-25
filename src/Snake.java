@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-class Snake {
+public class Snake {
     private Image headTop;
     private Image tail;
     private Image headLeft;
@@ -13,27 +13,23 @@ class Snake {
     private final int DOT_SIZE = 16;
     private int[] x = new int[ALL_DOTS];
     private int[] y = new int[ALL_DOTS];
-    private int BombX;
+    private final int BombX;
     private int BombY;
-    private int BombX2;
-    private int BombY2;
 
-    Snake(int dots){
+    public Snake(int dots){
         this.dots = dots;
         for (int i = 0; i < this.dots; i++) {
             x[i] = 32 - (i * DOT_SIZE);
             y[i] = 0;
         }
         BombX = 32;
-        BombY = 32;
-        BombX2 = 320;
-        BombY2 = 32;
+        BombY = 0;
         loadImages();
     }
 
 
 
-    private void loadImages(){
+    public void loadImages(){
         ImageIcon top = new ImageIcon("HeadTop.png");
         ImageIcon down = new ImageIcon("HeadDown.png");
         ImageIcon right = new ImageIcon("HeadRight.png");
@@ -50,75 +46,59 @@ class Snake {
 
     }
 
-    int getBombX(){
+    public int getBombX(){
         return BombX;
     }
-    int getBombY(){
+    public int getBombY(){
         return BombY;
     }
-    void setBombY(int num){
+    public void setBombY(int num){
         BombY = num;
     }
-    void setBombX(int num){
-        BombX = num;
-    }
 
-    int getBombX2(){
-        return BombX2;
-    }
-    int getBombY2(){
-        return BombY2;
-    }
-    void setBombY2(int num){
-        BombY2 = num;
-    }
-    void setBombX2(int num){
-        BombX2 = num;
-    }
-
-    int getDots(){
+    public int getDots(){
         return dots;
     }
 
-    int getX(int pos){
+    public int getX(int pos){
         return x[pos];
     }
 
-    int getY(int pos){
+    public int getY(int pos){
         return y[pos];
     }
-    void addDots(){
+    public void addDots(){
         dots++;
     }
-    void decDots(){
+    public void decDots(){
         dots--;
     }
-    Image getHeadTop(){
+    public Image getHeadTop(){
         return headTop;
     }
-    Image getHeadLeft(){
+    public Image getHeadLeft(){
         return headLeft;
     }
-    Image getHeadRight(){
+    public Image getHeadRight(){
         return headRight;
     }
-    Image getHeadDown(){
+    public Image getHeadDown(){
         return headDown;
     }
-    Image getBomb(){
+    public Image getBomb(){
         return Bomb;
     }
-    void setX(int pos, int num){
+    public void setX(int pos, int num){
         x[pos] = num;
     }
-    void setY(int pos, int num){
+    public void setY(int pos, int num){
         y[pos] = num;
     }
-    int getDOT_SIZE(){
+    public int getDOT_SIZE(){
         return DOT_SIZE;
     }
 
-    Image getTail(){
+    public Image getTail(){
         return tail;
     }
 

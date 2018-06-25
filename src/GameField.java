@@ -10,7 +10,7 @@ public class GameField extends JPanel implements ActionListener {
     private final int SIZE = 320;
     private final int DOT_SIZE = 16;
     private String name;
-    private Map map;
+    Map map;
     private String [] bestName = new String[5000];
     private String [] bestVal = new String[5000];
     private int topPersons = 0;
@@ -36,18 +36,26 @@ public class GameField extends JPanel implements ActionListener {
     private int gameMap = 0;
 
 
-    GameField(String name, int map){
+    public GameField(String name, int map, int complexity){
         loadImages();
-        initGame(name, map);
+        initGame(name, map, complexity);
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
     }
 
-    private void initGame(String name, int map){
+    public void initGame(String name, int map, int complexity){
         this.name = name;
         gameMap = map;
         snake = new Snake(3);
-        timer = new Timer(250, this);
+        if(complexity == 0){
+            timer = new Timer(250, this);
+        }
+        if(complexity == 1){
+            timer = new Timer(150, this);
+        }
+        if(complexity == 2){
+            timer = new Timer(30, this);
+        }
         timer.start();
         createApple();
         createPoisonApple();
@@ -55,23 +63,23 @@ public class GameField extends JPanel implements ActionListener {
     }
 
 
-    private void deleteApple(){
+    public void deleteApple(){
         applePX = 400;
         applePY = 400;
     }
 
 
-    private void createApple(){
+    public void createApple(){
         appleX = new Random().nextInt(20)*DOT_SIZE;
         appleY = new Random().nextInt(20)*DOT_SIZE;
     }
 
-    private void createPoisonApple(){
+    public void createPoisonApple(){
         applePX = new Random().nextInt(20)*DOT_SIZE;
         applePY = new Random().nextInt(20)*DOT_SIZE;
     }
 
-    private void loadImages(){
+    public void loadImages(){
         ImageIcon BackGround = new ImageIcon("Background.jpg");
         myBackGround = BackGround.getImage();
         ImageIcon iia = new ImageIcon("Apple.png");
@@ -121,25 +129,7 @@ public class GameField extends JPanel implements ActionListener {
         if(gameMap > 0) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < snake.getDots(); j++) {
-                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY()) {
-                        inGame = false;
-                        checkOnBest(name, eatApples);
-                    }
-                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY2()) {
-                        inGame = false;
-                        checkOnBest(name, eatApples);
-                    }
-                }
-            }
-        }
-        if(gameMap > 2) {
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < snake.getDots(); j++) {
-                    if (snake.getX(j) == map.getPosX() && snake.getY(j) == map.getMasY(i)) {
-                        inGame = false;
-                        checkOnBest(name, eatApples);
-                    }
-                    if (snake.getX(j) == map.getPosX2() && snake.getY(j) == map.getMasY(i)) {
+                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY(i)) {
                         inGame = false;
                         checkOnBest(name, eatApples);
                     }
@@ -180,47 +170,15 @@ public class GameField extends JPanel implements ActionListener {
         if (inGame){
             if(gameMap > 0) {
                 for (int i = 0; i < 10; i++) {
-                    g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(), this);
-                    if (map.getMas(i) == appleX && map.getPosY() == appleY) {
+                    g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(i), this);
+                    if (map.getMas(i) == appleX && map.getPosY(i) == appleY) {
                         createApple();
                     }
-                    if (map.getMas(i) == applePX && map.getPosY() == applePY) {
+                    if (map.getMas(i) == applePX && map.getPosY(i) == applePY) {
                         createPoisonApple();
                     }
                 }
-                if(gameMap > 1) {
-                    for (int i = 0; i < 10; i++) {
-                        g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY2(), this);
-                        if (map.getMas(i) == appleX && map.getPosY2() == appleY) {
-                            createApple();
-                        }
-                        if (map.getMas(i) == applePX && map.getPosY2() == applePY) {
-                            createPoisonApple();
-                        }
-                    }
-                    if(gameMap > 2){
-                        for (int i = 0; i < 10; i++) {
-                            g.drawImage(snake.getBomb(), map.getPosX(), map.getMasY(i), this);
-                            if (map.getMasY(i) == appleX && map.getPosX() == appleY) {
-                                createApple();
-                            }
-                            if (map.getMasY(i) == applePX && map.getPosX() == applePY) {
-                                createPoisonApple();
-                            }
-                        }
-                        for (int i = 0; i < 10; i++) {
-                            g.drawImage(snake.getBomb(), map.getPosX2(), map.getMasY(i), this);
-                            if (map.getMasY(i) == appleX && map.getPosX2() == appleY) {
-                                createApple();
-                            }
-                            if (map.getMasY(i) == applePX && map.getPosX2() == applePY) {
-                                createPoisonApple();
-                            }
-                        }
-                    }
-                }
             }
-
             g.drawImage(apple, appleX, appleY, this);
             g.drawImage(PoisonApple, applePX, applePY, this);
             for (int i = 0; i < snake.getDots(); i++) {
@@ -256,7 +214,6 @@ public class GameField extends JPanel implements ActionListener {
                 //g.drawImage(snake.getDot(), snake.getX(i),snake.getY(i), this);
             }
             g.drawImage(snake.getBomb(), snake.getBombX(), snake.getBombY(), this);
-            g.drawImage(snake.getBomb(), snake.getBombX2(), snake.getBombY2(), this);
         }else{
 
             String str = "Game Over";
@@ -286,16 +243,8 @@ public class GameField extends JPanel implements ActionListener {
         }
         if(downBomb){
             snake.setBombY(snake.getBombY() + snake.getDOT_SIZE());
-            snake.setBombX(snake.getBombX() + snake.getDOT_SIZE());
             if(snake.getBombY() == 20*snake.getDOT_SIZE()){
                 snake.setBombY(0);
-                snake.setBombX(0);
-            }
-            snake.setBombY2(snake.getBombY2() + snake.getDOT_SIZE());
-            snake.setBombX2(snake.getBombX2() - snake.getDOT_SIZE());
-            if(snake.getBombY2() == 20*snake.getDOT_SIZE()){
-                snake.setBombY2(0);
-                snake.setBombX2(320);
             }
         }
     }

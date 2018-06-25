@@ -6,16 +6,19 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
 public class MainWindow extends JFrame {
-    private JPanel p;
-    private String name = "Gamer";
-    private int map = 0;
-
-    private MainWindow(){
+    JPanel p;
+    String name = "Gamer";
+    Image font;
+    int map = 0;
+    int complexity = 0;
+    String UpPos = "W",DownPos = "S",LeftPos = "A",RightPos = "D";
+    public MainWindow(){
         setTitle("Змейка");
         setSize(352, 374);
         setLocation(500, 300);
@@ -23,16 +26,17 @@ public class MainWindow extends JFrame {
         add(p);
         p.setLayout(new BorderLayout());
     }
-    private void Game(int gameMap){
+    public void Game(int gameMap, int set){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         map = gameMap;
-        GameField g = new GameField(name, map);
+        complexity = set;
+        GameField g = new GameField(name, map, complexity);
         g.setBounds(0,0,400,400);
         add(g);
         setVisible(true);
     }
 
-    private void Map(JComboBox comboBox){
+    public void Map(JComboBox comboBox){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setSize(200, 200);
         setLocation(600, 400);
@@ -61,7 +65,7 @@ public class MainWindow extends JFrame {
         ActionListener actionGame = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainWindow mw = new MainWindow();
-                mw.Game(map);
+                mw.Game(map, 0);
             }
         };
 
@@ -74,7 +78,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
-    private void Table(){
+    public void Table(){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
         int pos = 100;
@@ -101,7 +105,128 @@ public class MainWindow extends JFrame {
 
     }
 
-    private void Menu(){
+    public void Settings(JComboBox comboBox){
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        comboBox.setAlignmentX(CENTER_ALIGNMENT);
+        JButton applySet = new JButton("Apply and start game");
+        JTextField Up = new JTextField("w");
+        JTextField Down = new JTextField("s");
+        JTextField Left = new JTextField("a");
+        JTextField Right = new JTextField("d");
+        JLabel UpText = new JLabel("UP :");
+        JLabel DownText = new JLabel("Down :");
+        JLabel LeftText = new JLabel("Left :");
+        JLabel RightText = new JLabel("Right :");
+        JLabel TextField = new JLabel("Set complexity :");
+
+        ActionListener actionListener = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox box = (JComboBox)e.getSource();
+                String item = (String)box.getSelectedItem();
+                if (item == "Low") {
+                    complexity = 0;
+                }
+                if (item == "Medium") {
+                    complexity = 1;
+                }
+                if (item == "Hard") {
+                    complexity = 2;
+                }
+            }
+        };
+
+        Up.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                UpPos = Up.getText();
+            }
+        });
+
+        Down.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DownPos = Down.getText();
+            }
+        });
+
+        Left.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                LeftPos = Left.getText();
+            }
+        });
+
+        Right.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                RightPos = Right.getText();
+            }
+        });
+
+        ActionListener actionGame = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try{
+                FileWriter writer = new FileWriter("Combination.txt");
+                writer.write("Up");
+                writer.write(" ");
+                writer.write(UpPos);
+                writer.write('\n');
+
+                    writer.write("Down");
+                    writer.write(" ");
+                    writer.write(DownPos);
+                    writer.write('\n');
+
+                    writer.write("Left");
+                    writer.write(" ");
+                    writer.write(LeftPos);
+                    writer.write('\n');
+
+                    writer.write("Right");
+                    writer.write(" ");
+                    writer.write(RightPos);
+                    writer.write('\n');
+
+                writer.close();
+            } catch (IOException ee) {
+                ee.printStackTrace();
+            }
+                MainWindow mw = new MainWindow();
+                mw.Game(0, complexity);
+            }
+        };
+
+        applySet.addActionListener(actionGame);
+        comboBox.addActionListener(actionListener);
+
+        applySet.setBounds(100,200,150,50);
+
+        UpText.setBounds(50,0,50,30);
+        Up.setBounds(50,30,100,40);
+
+        LeftText.setBounds(200,0,50,30);
+        Left.setBounds(200,30,100,40);
+
+        DownText.setBounds(50,80,50,30);
+        Down.setBounds(50,100,100,40);
+
+        RightText.setBounds(200,80,50,30);
+        Right.setBounds(200,100,100,40);
+
+        TextField.setBounds(120,140,150,30);
+
+        add(TextField);
+        add(UpText);
+        add(DownText);
+        add(LeftText);
+        add(RightText);
+        add(Up);
+        add(Down);
+        add(Left);
+        add(Right);
+        add(Up);
+        add(applySet);
+        add(comboBox);
+        setVisible(true);
+    }
+
+    public void Menu(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JLabel lab1 = new JLabel(" ");
         JButton startClassicMode = new JButton("Start classic mode");
@@ -115,13 +240,19 @@ public class MainWindow extends JFrame {
                 "Second map",
                 "Third map"
         };
+        String[] itemsSet = {
+                "Low",
+                "Medium",
+                "Hard"
+        };
         JComboBox comboBox = new JComboBox(items);
+        JComboBox comboBoxSettings = new JComboBox(itemsSet);
 
 
         ActionListener actionClassicMod = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainWindow mw = new MainWindow();
-                mw.Game(0);
+                mw.Game(0, 0);
             }
         };
 
@@ -139,6 +270,13 @@ public class MainWindow extends JFrame {
             }
         };
 
+        ActionListener actionSetting = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                MainWindow mw = new MainWindow();
+                mw.Settings(comboBoxSettings);
+            }
+        };
+
 
         highscoreTable.setBounds(100,200,150,50);
         selectMap.setBounds(125,150,100,50);
@@ -148,6 +286,7 @@ public class MainWindow extends JFrame {
         startClassicMode.addActionListener(actionClassicMod);
         selectMap.addActionListener(actionSelectMap);
         highscoreTable.addActionListener(actionTable);
+        settings.addActionListener(actionSetting);
 
 
         p.add(startClassicMode, BorderLayout.CENTER);
