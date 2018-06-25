@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e2bd59e-783f-4193-a0d0-dbda1b2c5f88" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Best.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Best.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/GameField$FieldKeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/GameField$FieldKeyListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/GameField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/GameField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/MainWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/MainWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/MainWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/MainWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/MainWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/MainWindow$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/MainWindow$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/MainWindow$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/MainWindow$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/MainWindow$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sneak/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sneak/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
-    </list>
+    <list default="true" id="4e2bd59e-783f-4193-a0d0-dbda1b2c5f88" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,7 +38,7 @@
       <file leaf-file-name="GameField.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="1149">
               <caret line="124" column="32" lean-forward="true" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,9 +59,10 @@
       <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
+                <element signature="e#449#450#0" expanded="true" />
                 <element signature="e#480#481#0" expanded="true" />
                 <element signature="e#508#509#0" expanded="true" />
                 <element signature="e#535#536#0" expanded="true" />
@@ -88,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/Best.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -262,7 +249,7 @@
       <workItem from="1529843367558" duration="226000" />
       <workItem from="1529866275807" duration="244000" />
       <workItem from="1529871999996" duration="8421000" />
-      <workItem from="1529952211856" duration="4188000" />
+      <workItem from="1529952211856" duration="4463000" />
     </task>
     <task id="LOCAL-00001" summary="asd">
       <created>1529865087522</created>
@@ -275,7 +262,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13300000" />
+    <option name="totallyTimeSpent" value="13575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
@@ -733,14 +720,7 @@
     <entry file="file://$PROJECT_DIR$/Best.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combination.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -773,9 +753,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Combination.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="1149">
           <caret line="124" column="32" lean-forward="true" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -785,9 +772,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
+            <element signature="e#449#450#0" expanded="true" />
             <element signature="e#480#481#0" expanded="true" />
             <element signature="e#508#509#0" expanded="true" />
             <element signature="e#535#536#0" expanded="true" />
