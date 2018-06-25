@@ -13,8 +13,10 @@ public class Snake {
     private final int DOT_SIZE = 16;
     private int[] x = new int[ALL_DOTS];
     private int[] y = new int[ALL_DOTS];
-    private final int BombX;
+    private int BombX;
     private int BombY;
+    private int BombX2;
+    private int BombY2;
 
     public Snake(int dots){
         this.dots = dots;
@@ -23,7 +25,9 @@ public class Snake {
             y[i] = 0;
         }
         BombX = 32;
-        BombY = 0;
+        BombY = 32;
+        BombX2 = 320;
+        BombY2 = 32;
         loadImages();
     }
 
@@ -54,6 +58,22 @@ public class Snake {
     }
     public void setBombY(int num){
         BombY = num;
+    }
+    public void setBombX(int num){
+        BombX = num;
+    }
+
+    public int getBombX2(){
+        return BombX2;
+    }
+    public int getBombY2(){
+        return BombY2;
+    }
+    public void setBombY2(int num){
+        BombY2 = num;
+    }
+    public void setBombX2(int num){
+        BombX2 = num;
     }
 
     public int getDots(){

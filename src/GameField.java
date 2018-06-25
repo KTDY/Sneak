@@ -125,6 +125,24 @@ public class GameField extends JPanel implements ActionListener {
                         inGame = false;
                         checkOnBest(name, eatApples);
                     }
+                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY2()) {
+                        inGame = false;
+                        checkOnBest(name, eatApples);
+                    }
+                }
+            }
+        }
+        if(gameMap > 2) {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < snake.getDots(); j++) {
+                    if (snake.getX(j) == map.getPosX() && snake.getY(j) == map.getMasY(i)) {
+                        inGame = false;
+                        checkOnBest(name, eatApples);
+                    }
+                    if (snake.getX(j) == map.getPosX2() && snake.getY(j) == map.getMasY(i)) {
+                        inGame = false;
+                        checkOnBest(name, eatApples);
+                    }
                 }
             }
         }
@@ -170,7 +188,39 @@ public class GameField extends JPanel implements ActionListener {
                         createPoisonApple();
                     }
                 }
+                if(gameMap > 1) {
+                    for (int i = 0; i < 10; i++) {
+                        g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY2(), this);
+                        if (map.getMas(i) == appleX && map.getPosY2() == appleY) {
+                            createApple();
+                        }
+                        if (map.getMas(i) == applePX && map.getPosY2() == applePY) {
+                            createPoisonApple();
+                        }
+                    }
+                    if(gameMap > 2){
+                        for (int i = 0; i < 10; i++) {
+                            g.drawImage(snake.getBomb(), map.getPosX(), map.getMasY(i), this);
+                            if (map.getMasY(i) == appleX && map.getPosX() == appleY) {
+                                createApple();
+                            }
+                            if (map.getMasY(i) == applePX && map.getPosX() == applePY) {
+                                createPoisonApple();
+                            }
+                        }
+                        for (int i = 0; i < 10; i++) {
+                            g.drawImage(snake.getBomb(), map.getPosX2(), map.getMasY(i), this);
+                            if (map.getMasY(i) == appleX && map.getPosX2() == appleY) {
+                                createApple();
+                            }
+                            if (map.getMasY(i) == applePX && map.getPosX2() == applePY) {
+                                createPoisonApple();
+                            }
+                        }
+                    }
+                }
             }
+
             g.drawImage(apple, appleX, appleY, this);
             g.drawImage(PoisonApple, applePX, applePY, this);
             for (int i = 0; i < snake.getDots(); i++) {
@@ -206,6 +256,7 @@ public class GameField extends JPanel implements ActionListener {
                 //g.drawImage(snake.getDot(), snake.getX(i),snake.getY(i), this);
             }
             g.drawImage(snake.getBomb(), snake.getBombX(), snake.getBombY(), this);
+            g.drawImage(snake.getBomb(), snake.getBombX2(), snake.getBombY2(), this);
         }else{
 
             String str = "Game Over";
@@ -235,8 +286,16 @@ public class GameField extends JPanel implements ActionListener {
         }
         if(downBomb){
             snake.setBombY(snake.getBombY() + snake.getDOT_SIZE());
+            snake.setBombX(snake.getBombX() + snake.getDOT_SIZE());
             if(snake.getBombY() == 20*snake.getDOT_SIZE()){
                 snake.setBombY(0);
+                snake.setBombX(0);
+            }
+            snake.setBombY2(snake.getBombY2() + snake.getDOT_SIZE());
+            snake.setBombX2(snake.getBombX2() - snake.getDOT_SIZE());
+            if(snake.getBombY2() == 20*snake.getDOT_SIZE()){
+                snake.setBombY2(0);
+                snake.setBombX2(320);
             }
         }
     }
