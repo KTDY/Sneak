@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Map {
+class Map {
     private int map;
     private int posY;
     private int [] mas = new int[10];
@@ -10,7 +10,7 @@ public class Map {
     private int posX2;
 
 
-    public Map(int map) {
+    Map(int map) {
         if (map == 1) {
             for (int i = 0; i < 10; i++) {
                 mas[i] = i * 2 * 16;
@@ -50,27 +50,27 @@ public class Map {
 
 
 
-    public int getMas(int ind) {
+    int getMas(int ind) {
         return mas[ind];
     }
 
-    public int getMasY(int ind) {
+    int getMasY(int ind) {
         return masY[ind];
     }
 
-    public int getPosX() {
+    int getPosX() {
         return posX;
     }
 
-    public int getPosX2() {
+    int getPosX2() {
         return posX2;
     }
 
-    public int getPosY() {
+    int getPosY() {
         return posY;
     }
 
-    public int getPosY2() {
+    int getPosY2() {
         return posY2;
     }
 }

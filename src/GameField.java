@@ -10,7 +10,7 @@ public class GameField extends JPanel implements ActionListener {
     private final int SIZE = 320;
     private final int DOT_SIZE = 16;
     private String name;
-    Map map;
+    private Map map;
     private String [] bestName = new String[5000];
     private String [] bestVal = new String[5000];
     private int topPersons = 0;
@@ -36,14 +36,14 @@ public class GameField extends JPanel implements ActionListener {
     private int gameMap = 0;
 
 
-    public GameField(String name, int map){
+    GameField(String name, int map){
         loadImages();
         initGame(name, map);
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
     }
 
-    public void initGame(String name, int map){
+    private void initGame(String name, int map){
         this.name = name;
         gameMap = map;
         snake = new Snake(3);
@@ -55,23 +55,23 @@ public class GameField extends JPanel implements ActionListener {
     }
 
 
-    public void deleteApple(){
+    private void deleteApple(){
         applePX = 400;
         applePY = 400;
     }
 
 
-    public void createApple(){
+    private void createApple(){
         appleX = new Random().nextInt(20)*DOT_SIZE;
         appleY = new Random().nextInt(20)*DOT_SIZE;
     }
 
-    public void createPoisonApple(){
+    private void createPoisonApple(){
         applePX = new Random().nextInt(20)*DOT_SIZE;
         applePY = new Random().nextInt(20)*DOT_SIZE;
     }
 
-    public void loadImages(){
+    private void loadImages(){
         ImageIcon BackGround = new ImageIcon("Background.jpg");
         myBackGround = BackGround.getImage();
         ImageIcon iia = new ImageIcon("Apple.png");

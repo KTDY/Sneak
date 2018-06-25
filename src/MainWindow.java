@@ -11,11 +11,11 @@ import java.util.Scanner;
 import javax.swing.ImageIcon;
 
 public class MainWindow extends JFrame {
-    JPanel p;
-    String name = "Gamer";
-    Image font;
-    int map = 0;
-    public MainWindow(){
+    private JPanel p;
+    private String name = "Gamer";
+    private int map = 0;
+
+    private MainWindow(){
         setTitle("Змейка");
         setSize(352, 374);
         setLocation(500, 300);
@@ -23,7 +23,7 @@ public class MainWindow extends JFrame {
         add(p);
         p.setLayout(new BorderLayout());
     }
-    public void Game(int gameMap){
+    private void Game(int gameMap){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         map = gameMap;
         GameField g = new GameField(name, map);
@@ -32,7 +32,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
-    public void Map(JComboBox comboBox){
+    private void Map(JComboBox comboBox){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setSize(200, 200);
         setLocation(600, 400);
@@ -74,7 +74,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
-    public void Table(){
+    private void Table(){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
         int pos = 100;
@@ -101,7 +101,7 @@ public class MainWindow extends JFrame {
 
     }
 
-    public void Menu(){
+    private void Menu(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JLabel lab1 = new JLabel(" ");
         JButton startClassicMode = new JButton("Start classic mode");
