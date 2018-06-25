@@ -14,6 +14,7 @@ public class GameField extends JPanel implements ActionListener {
     private String [] bestName = new String[5000];
     private String [] bestVal = new String[5000];
     private int topPersons = 0;
+    private int topPersonsI = 10;
     private Image myBackGround;
     private Image apple;
     private Image PoisonApple;
@@ -32,17 +33,19 @@ public class GameField extends JPanel implements ActionListener {
     private int eatApples = 0;
     private boolean downBomb = true;
     private char Up,Down,Left,Right;
+    private int gameMap = 0;
 
 
-    public GameField(String name){
+    public GameField(String name, int map){
         loadImages();
-        initGame(name);
+        initGame(name, map);
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
     }
 
-    public void initGame(String name){
+    public void initGame(String name, int map){
         this.name = name;
+        gameMap = map;
         snake = new Snake(3);
         timer = new Timer(250, this);
         timer.start();
@@ -115,10 +118,13 @@ public class GameField extends JPanel implements ActionListener {
                 //break;
             }
         }
-        for(int i  = 0; i < 10; i++){
-            for(int j  = 0; j < snake.getDots(); j++){
-                if(snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY()){
-                    inGame = false;
+        if(gameMap > 0) {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < snake.getDots(); j++) {
+                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY()) {
+                        inGame = false;
+                        checkOnBest(name, eatApples);
+                    }
                 }
             }
         }
@@ -151,16 +157,18 @@ public class GameField extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        map = new Map();
+        map = new Map(gameMap);
         g.drawImage(myBackGround,0,0,this); //выводим фон
         if (inGame){
-            for(int i = 0; i < 10; i++){
-                g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(),this);
-                if(map.getMas(i) == appleX && map.getPosY() == appleY){
-                    createApple();
-                }
-                if(map.getMas(i) == applePX && map.getPosY() == applePY){
-                    createPoisonApple();
+            if(gameMap > 0) {
+                for (int i = 0; i < 10; i++) {
+                    g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(), this);
+                    if (map.getMas(i) == appleX && map.getPosY() == appleY) {
+                        createApple();
+                    }
+                    if (map.getMas(i) == applePX && map.getPosY() == applePY) {
+                        createPoisonApple();
+                    }
                 }
             }
             g.drawImage(apple, appleX, appleY, this);
