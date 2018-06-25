@@ -36,18 +36,26 @@ public class GameField extends JPanel implements ActionListener {
     private int gameMap = 0;
 
 
-    public GameField(String name, int map){
+    public GameField(String name, int map, int complexity){
         loadImages();
-        initGame(name, map);
+        initGame(name, map, complexity);
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
     }
 
-    public void initGame(String name, int map){
+    public void initGame(String name, int map, int complexity){
         this.name = name;
         gameMap = map;
         snake = new Snake(3);
-        timer = new Timer(250, this);
+        if(complexity == 0){
+            timer = new Timer(250, this);
+        }
+        if(complexity == 1){
+            timer = new Timer(150, this);
+        }
+        if(complexity == 2){
+            timer = new Timer(30, this);
+        }
         timer.start();
         createApple();
         createPoisonApple();
@@ -121,7 +129,7 @@ public class GameField extends JPanel implements ActionListener {
         if(gameMap > 0) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < snake.getDots(); j++) {
-                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY()) {
+                    if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY(i)) {
                         inGame = false;
                         checkOnBest(name, eatApples);
                     }
@@ -162,11 +170,11 @@ public class GameField extends JPanel implements ActionListener {
         if (inGame){
             if(gameMap > 0) {
                 for (int i = 0; i < 10; i++) {
-                    g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(), this);
-                    if (map.getMas(i) == appleX && map.getPosY() == appleY) {
+                    g.drawImage(snake.getBomb(), map.getMas(i), map.getPosY(i), this);
+                    if (map.getMas(i) == appleX && map.getPosY(i) == appleY) {
                         createApple();
                     }
-                    if (map.getMas(i) == applePX && map.getPosY() == applePY) {
+                    if (map.getMas(i) == applePX && map.getPosY(i) == applePY) {
                         createPoisonApple();
                     }
                 }
