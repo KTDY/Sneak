@@ -12,7 +12,6 @@ import java.util.Scanner;
 import javax.swing.ImageIcon;
 
 public class MainWindow extends JFrame {
-<<<<<<< HEAD
     JPanel p;
     String name = "Gamer";
     Image font;
@@ -20,13 +19,6 @@ public class MainWindow extends JFrame {
     int complexity = 0;
     String UpPos = "W",DownPos = "S",LeftPos = "A",RightPos = "D";
     public MainWindow(){
-=======
-    private JPanel p;
-    private String name = "Gamer";
-    private int map = 0;
-
-    private MainWindow(){
->>>>>>> 08c54748154010240202bfd85d817863975c2406
         setTitle("Змейка");
         setSize(352, 374);
         setLocation(500, 300);
@@ -34,11 +26,7 @@ public class MainWindow extends JFrame {
         add(p);
         p.setLayout(new BorderLayout());
     }
-<<<<<<< HEAD
     public void Game(int gameMap, int set){
-=======
-    private void Game(int gameMap){
->>>>>>> 08c54748154010240202bfd85d817863975c2406
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         map = gameMap;
         complexity = set;
@@ -48,7 +36,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
-    private void Map(JComboBox comboBox){
+    public void Map(JComboBox comboBox){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setSize(200, 200);
         setLocation(600, 400);
@@ -90,7 +78,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
-    private void Table(){
+    public void Table(){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
         int pos = 100;
@@ -117,7 +105,6 @@ public class MainWindow extends JFrame {
 
     }
 
-<<<<<<< HEAD
     public void Settings(JComboBox comboBox){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         comboBox.setAlignmentX(CENTER_ALIGNMENT);
@@ -240,9 +227,6 @@ public class MainWindow extends JFrame {
     }
 
     public void Menu(){
-=======
-    private void Menu(){
->>>>>>> 08c54748154010240202bfd85d817863975c2406
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JLabel lab1 = new JLabel(" ");
         JButton startClassicMode = new JButton("Start classic mode");
