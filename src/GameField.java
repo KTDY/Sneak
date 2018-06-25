@@ -102,23 +102,23 @@ public class GameField extends JPanel implements ActionListener {
         for (int i = snake.getDots(); i > 0 ; i--) {
             if(i > 4 && snake.getX(0) == snake.getX(i) && snake.getY(0) == snake.getY(i)){ //голова пришла в хвост
                 inGame = false;
-                //checkOnBest(name, eatApples);
+                checkOnBest(name, eatApples);
             }
             //проверка не коснулись ли тела
             for (int j = 1; j < snake.getDots(); j++){
                 if(i > 4 && snake.getX(0) == snake.getX(j) && snake.getY(0) == snake.getY(j)){
                     inGame = false;
-                    //checkOnBest(name, eatApples);
+                    checkOnBest(name, eatApples);
                 }
             }
         }
         if((snake.getX(0)> SIZE) || (snake.getX(0)<0) || (snake.getY(0)> SIZE) || (snake.getY(0)<0)){
             inGame = false;
-            //checkOnBest(name, eatApples);
+            checkOnBest(name, eatApples);
         }
         if (snake.getDots() == 0){
             inGame = false;
-            //checkOnBest(name, eatApples);
+            checkOnBest(name, eatApples);
         }
         if(gameMap > 0){
             for (int i = snake.getDots(); i > 0; i--) {
@@ -132,11 +132,11 @@ public class GameField extends JPanel implements ActionListener {
                 for (int j = 0; j < snake.getDots(); j++) {
                     if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY()) {
                         inGame = false;
-                        //checkOnBest(name, eatApples);
+                        checkOnBest(name, eatApples);
                     }
                     if (snake.getX(j) == map.getMas(i) && snake.getY(j) == map.getPosY2()) {
                         inGame = false;
-                        //checkOnBest(name, eatApples);
+                        checkOnBest(name, eatApples);
                     }
                 }
             }
@@ -146,11 +146,11 @@ public class GameField extends JPanel implements ActionListener {
                 for (int j = 0; j < snake.getDots(); j++) {
                     if (snake.getX(j) == map.getPosX() && snake.getY(j) == map.getMasY(i)) {
                         inGame = false;
-                        //checkOnBest(name, eatApples);
+                        checkOnBest(name, eatApples);
                     }
                     if (snake.getX(j) == map.getPosX2() && snake.getY(j) == map.getMasY(i)) {
                         inGame = false;
-                        //checkOnBest(name, eatApples);
+                        checkOnBest(name, eatApples);
                     }
                 }
             }
