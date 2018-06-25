@@ -14,7 +14,6 @@ public class GameField extends JPanel implements ActionListener {
     private String [] bestName = new String[5000];
     private String [] bestVal = new String[5000];
     private int topPersons = 0;
-    private int topPersonsI = 10;
     private Image myBackGround;
     private Image apple;
     private Image PoisonApple;
@@ -34,19 +33,21 @@ public class GameField extends JPanel implements ActionListener {
     private boolean downBomb = true;
     private char Up,Down,Left,Right;
     private int gameMap = 0;
+    private int complexity = 0;
 
 
-    public GameField(String name, int map, int complexity){
+    public GameField(String name, int map){
         loadImages();
-        initGame(name, map, complexity);
+        initGame(name, map);
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
     }
 
-    public void initGame(String name, int map, int complexity){
+    public void initGame(String name, int map){
         this.name = name;
         gameMap = map;
         snake = new Snake(3);
+        createComplexity();
         if(complexity == 0){
             timer = new Timer(250, this);
         }
@@ -387,15 +388,9 @@ public class GameField extends JPanel implements ActionListener {
         for(int i = 0; i < topPersons; i++){
             int val = Integer.parseInt(bestVal[i]);
             if(val <= num){
-                /*
-                bestVal[i] = String.valueOf(num);
-                bestName[i] = name;
-                change = true;
-                System.out.println("We change");
-                */
                 sorted(num, i, name);
                 change = true;
-                System.out.println("We change");
+                //System.out.println("We change");
                 break;
             }
         }
@@ -435,6 +430,18 @@ public class GameField extends JPanel implements ActionListener {
             e.printStackTrace();
         }
 
+    }
+    private void createComplexity(){
+        try{
+        FileReader comp = new FileReader("Complexity.txt");
+        Scanner scan = new Scanner(comp);
+            while (scan.hasNext()) { //устанавливаем имена и их рекоды в массивы
+                complexity = Integer.parseInt(scan.next());
+            }
+            comp.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
