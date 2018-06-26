@@ -16,8 +16,7 @@ public class MainWindow extends JFrame {
     String name = "Gamer";
     Image font;
     int map = 0;
-    int complexity = 0;
-    String UpPos = "W",DownPos = "S",LeftPos = "A",RightPos = "D";
+    String UpPos = "w",DownPos = "s",LeftPos = "a",RightPos = "d";
     public MainWindow(){
         setTitle("Змейка");
         setSize(352, 374);
@@ -26,11 +25,10 @@ public class MainWindow extends JFrame {
         add(p);
         p.setLayout(new BorderLayout());
     }
-    public void Game(int gameMap, int set){
+    public void Game(int gameMap){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         map = gameMap;
-        complexity = set;
-        GameField g = new GameField(name, map, complexity);
+        GameField g = new GameField(name, map);
         g.setBounds(0,0,400,400);
         add(g);
         setVisible(true);
@@ -65,7 +63,7 @@ public class MainWindow extends JFrame {
         ActionListener actionGame = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainWindow mw = new MainWindow();
-                mw.Game(map, 0);
+                mw.Game(map);
             }
         };
 
@@ -81,6 +79,8 @@ public class MainWindow extends JFrame {
     public void Table(){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
+        String speshial = "⠀";
+        int track = 0;
         int pos = 100;
         try {
             FileReader reader = new FileReader("Best.txt");
@@ -96,7 +96,12 @@ public class MainWindow extends JFrame {
                 name.setBounds(150,pos,100,40);
                 pos +=20;
                 p.add(name, BorderLayout.CENTER);
-
+                track++;
+                if(track == 10){
+                    JLabel sp = new JLabel(speshial + "    " + speshial);
+                    name.setBounds(150,pos,100,40);
+                    p.add(sp,BorderLayout.CENTER);
+                }
             }
             reader.close();
         } catch (IOException e) {
@@ -104,11 +109,23 @@ public class MainWindow extends JFrame {
         }
 
     }
+    private void writiComplexity(int complexity){
+        String number = String.valueOf(complexity);
+        try {
+            FileWriter comp = new FileWriter("Complexity.txt");
+            comp.write(number);
+            comp.close();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void Settings(JComboBox comboBox){
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         comboBox.setAlignmentX(CENTER_ALIGNMENT);
-        JButton applySet = new JButton("Apply and start game");
+        JButton applySet = new JButton("Apply setting's");
         JTextField Up = new JTextField("w");
         JTextField Down = new JTextField("s");
         JTextField Left = new JTextField("a");
@@ -124,13 +141,14 @@ public class MainWindow extends JFrame {
                 JComboBox box = (JComboBox)e.getSource();
                 String item = (String)box.getSelectedItem();
                 if (item == "Low") {
-                    complexity = 0;
+
+                    writiComplexity(0);
                 }
                 if (item == "Medium") {
-                    complexity = 1;
+                    writiComplexity(1);
                 }
                 if (item == "Hard") {
-                    complexity = 2;
+                    writiComplexity(2);
                 }
             }
         };
@@ -161,12 +179,12 @@ public class MainWindow extends JFrame {
 
         ActionListener actionGame = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try{
-                FileWriter writer = new FileWriter("Combination.txt");
-                writer.write("Up");
-                writer.write(" ");
-                writer.write(UpPos);
-                writer.write('\n');
+                try {
+                    FileWriter writer = new FileWriter("Combination.txt");
+                    writer.write("Up");
+                    writer.write(" ");
+                    writer.write(UpPos);
+                    writer.write('\n');
 
                     writer.write("Down");
                     writer.write(" ");
@@ -183,12 +201,10 @@ public class MainWindow extends JFrame {
                     writer.write(RightPos);
                     writer.write('\n');
 
-                writer.close();
-            } catch (IOException ee) {
-                ee.printStackTrace();
-            }
-                MainWindow mw = new MainWindow();
-                mw.Game(0, complexity);
+                    writer.close();
+                } catch (IOException ee) {
+                    ee.printStackTrace();
+                }
             }
         };
 
@@ -252,7 +268,7 @@ public class MainWindow extends JFrame {
         ActionListener actionClassicMod = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainWindow mw = new MainWindow();
-                mw.Game(0, 0);
+                mw.Game(0);
             }
         };
 
